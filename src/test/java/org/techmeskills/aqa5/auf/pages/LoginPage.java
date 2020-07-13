@@ -36,8 +36,8 @@ public class LoginPage extends BasePageFactory {
        return identifyPage.isDisplayed();
     }
 
-    public ProjectStep loginButtonClick(){
+    public DashboardPage loginButtonClick(){
         loginButton.click();
-        return new ProjectStep(browsersService);
+        return new DashboardPage(browsersService);
     }
 }
