@@ -16,14 +16,14 @@ public class AdministrationStep extends BaseStep {
     @Step
     public ProjectsPage deleteProject(String projectName) {
         AdministrationPage administrationPage = new AdministrationPage(browsersService, true);
-        administrationPage.projectLink.click();
+        //administrationPage.projectLink.click();
 
-        ProjectsPage projectsPage = new ProjectsPage(browsersService, false);
+        ProjectsPage projectsPage = administrationPage.projectLinkClick();
         projectsPage.getDeleteIcon(projectName).click();
         projectsPage.confirmationYesCheckbox.click();
         projectsPage.confirmationOkButton.click();
 
         browsersService.getWaiters().waitForInvisibility(administrationPage.projectLink);
-        return projectsPage;
+        return new ProjectsPage(browsersService,false);
     }
 }

@@ -7,6 +7,7 @@ import org.techmeskills.aqa5.auf.baseEntity.BasePage;
 import org.techmeskills.aqa5.auf.baseEntity.BasePageFactory;
 import org.techmeskills.aqa5.auf.core.BrowsersService;
 import org.techmeskills.aqa5.auf.elements.UIElement;
+import org.techmeskills.aqa5.auf.steps.ProjectStep;
 
 public class LoginPage extends BasePageFactory {
     private String URL = "https://aqa5master.testrail.io/";
@@ -33,5 +34,10 @@ public class LoginPage extends BasePageFactory {
     @Override
     public boolean isPageOpened() {
        return identifyPage.isDisplayed();
+    }
+
+    public ProjectStep loginButtonClick(){
+        loginButton.click();
+        return new ProjectStep(browsersService);
     }
 }

@@ -20,7 +20,6 @@ public class SmokeTest1 extends BaseTest {
     public void createProject() {
         ProjectStep projectStep = new ProjectStep(browsersService);
         projectStep.createNewProject("PR01", "Use a single repository for all cases (recommended)");
-
         Assert.assertTrue(browsersService.getDriver().getTitle().equalsIgnoreCase("PR01 - TestRail")
                 || browsersService.getDriver().getTitle().equalsIgnoreCase("Projects - TestRail"));
     }
@@ -28,9 +27,7 @@ public class SmokeTest1 extends BaseTest {
     @Test(dependsOnMethods = "createProject")
     public void deleteProject() {
         AdministrationStep administrationStep = new AdministrationStep(browsersService);
-        administrationStep.deleteProject("PR01");
-
-        ProjectsPage projectsPage = new ProjectsPage(browsersService, false);
+        ProjectsPage projectsPage = administrationStep.deleteProject("PR01");
         Assert.assertThrows(TimeoutException.class, () -> projectsPage.getProjectItemLink("PR01"));
     }
 }

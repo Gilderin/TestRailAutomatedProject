@@ -14,7 +14,6 @@ public class LoginStep extends BaseStep {
     @Step
     public void login(String username, String password) {
         LoginPage loginPage = new LoginPage(browsersService);
-
         loginPage.email.sendKeys(username);
         loginPage.password.sendKeys(password);
         loginPage.loginButton.click();

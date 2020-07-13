@@ -24,4 +24,10 @@ public class DashboardPage extends BasePageFactory {
     public boolean isPageOpened() {
         return browsersService.getDriver().getTitle().equalsIgnoreCase("All Projects - TestRail");
     }
+
+    public AddProjectPage addProjectPageClick(){
+        addProjectButton.click();
+        return new AddProjectPage(browsersService);
+    }
+
 }

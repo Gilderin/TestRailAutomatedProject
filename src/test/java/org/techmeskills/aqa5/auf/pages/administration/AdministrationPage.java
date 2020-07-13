@@ -27,4 +27,9 @@ public class AdministrationPage extends BasePageFactory {
         return identifyPage.isDisplayed();
     }
 
+    public ProjectsPage projectLinkClick(){
+        projectLink.click();
+        return new ProjectsPage(browsersService, true);
+    }
+
 }

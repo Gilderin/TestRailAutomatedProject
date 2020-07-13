@@ -16,9 +16,8 @@ public class ProjectStep extends BaseStep {
     @Step
     public void createNewProject(String name, String type) {
         DashboardPage dashboardPage = new DashboardPage(browsersService);
-        dashboardPage.addProjectButton.click();
-
-        AddProjectPage addProjectPage = new AddProjectPage(browsersService);
+       // dashboardPage.addProjectButton.click();
+        AddProjectPage addProjectPage = dashboardPage.addProjectPageClick();
         addProjectPage.name.sendKeys(name);
 
         switch (type) {
@@ -32,7 +31,6 @@ public class ProjectStep extends BaseStep {
                 addProjectPage.suiteModeMulti.click();
                 break;
         }
-
         addProjectPage.addProjectButton.submit();
     }
 }
