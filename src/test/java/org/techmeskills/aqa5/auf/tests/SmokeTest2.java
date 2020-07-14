@@ -1,6 +1,7 @@
 package org.techmeskills.aqa5.auf.tests;
 
 import org.techmeskills.aqa5.auf.baseEntity.BaseTest;
+import org.techmeskills.aqa5.auf.models.Users;
 import org.techmeskills.aqa5.auf.pages.administration.ProjectsPage;
 import org.techmeskills.aqa5.auf.steps.AdministrationStep;
 import org.techmeskills.aqa5.auf.steps.LoginStep;
@@ -9,10 +10,16 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SmokeTest2 extends BaseTest {
+    public Users usersBuilder;
+
     @Test
     public void login() {
         LoginStep loginStep = new LoginStep(browsersService);
-        loginStep.login("atrostyanko+master@gmail.com", "QqtRK9elseEfAk6ilYcJ");
+        usersBuilder = new Users.Builder()
+                .setEmail("atrostyanko+master@gmail.com")
+                .setPassword("QqtRK9elseEfAk6ilYcJ")
+                .build();
+        loginStep.loginV(usersBuilder);
     }
 
     @Test(dependsOnMethods = "login")
