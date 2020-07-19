@@ -10,6 +10,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
 public class getRequests extends BaseApiTest {
+
     @Test
     public void getListUsers() {
         String endpoint = "/api/users?page=2";

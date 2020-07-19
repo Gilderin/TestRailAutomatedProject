@@ -15,6 +15,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
 public class postRequests extends BaseApiTest {
+
     @Test
     public void postCreate() {
         Project project = new Project.Builder()
@@ -36,7 +37,6 @@ public class postRequests extends BaseApiTest {
                 .statusCode(HttpStatus.SC_CREATED)
                 .body("name", equalTo("Example1"))
                 .body("job", equalTo("A1"));
-
     }
 
     @Test
@@ -79,7 +79,6 @@ public class postRequests extends BaseApiTest {
                 .log().body()
                 .statusCode(HttpStatus.SC_BAD_REQUEST)
                 .body("error", equalTo("Missing password"));
-
     }
 
     @Test

@@ -70,6 +70,5 @@ public class anotherRequests extends BaseApiTest {
                 .then()
                 .log().body()
                 .statusCode(HttpStatus.SC_NO_CONTENT);
-
     }
 }
