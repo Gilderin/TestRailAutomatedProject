@@ -5,6 +5,8 @@ public class Users {
     private String password;
     private String name;
     private String surname;
+    private boolean isActive;
+    private int  id;
 
 
     public Users(String name, String surname, String email) {
@@ -29,12 +31,57 @@ public class Users {
 
     }
 
+
+    public static class Builder {
+        private Users users;
+
+        public Builder() {
+            users = new Users();
+        }
+
+        public Users.Builder setName(String name){
+            users.name=name;
+            return this;
+        }
+        public Users.Builder setId(int id){
+            users.id=id;
+            return this;
+        }
+        public Users.Builder setIsActive(Boolean isActive){
+            users.isActive=isActive;
+            return this;
+        }
+        public Users.Builder setSurname(String surname){
+            users.surname=surname;
+            return this;
+        }
+        public Users.Builder setEmail(String email){
+            users.email=email;
+            return this;
+        }
+        public Users.Builder setPassword(String password){
+            users.password=password;
+            return this;
+        }
+        public Users build(){
+            return users;
+        }
+
+    }
     public String getEmail() {
         return email;
     }
 
     public String getPassword() {
         return password;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -61,32 +108,5 @@ public class Users {
         this.password = password;
     }
 
-    public static class Builder {
-        private Users users;
 
-        public Builder() {
-            users = new Users();
-        }
-
-        public Users.Builder setName(String name){
-            users.name=name;
-            return this;
-        }
-        public Users.Builder setSurname(String surname){
-            users.surname=surname;
-            return this;
-        }
-        public Users.Builder setEmail(String email){
-            users.email=email;
-            return this;
-        }
-        public Users.Builder setPassword(String password){
-            users.password=password;
-            return this;
-        }
-        public Users build(){
-            return users;
-        }
-
-    }
 }
